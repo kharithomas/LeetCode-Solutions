@@ -1,6 +1,8 @@
+# TC : O(N) 
+# SC : O(1) 
+
 class Solution:
     def isPalindromic(self, s: str, start: int, end: int) -> bool:
-
         while start < end:
             if s[start] != s[end]:
                 return False
