@@ -1,5 +1,5 @@
 # TC : O(N)
-# SC : O(N)
+# SC : O(N), best case for python since strings are immutable
 
 class Solution:
     def reverseWords(self, s: str) -> str:
