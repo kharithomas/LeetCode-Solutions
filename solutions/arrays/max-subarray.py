@@ -1,19 +1,19 @@
-# TC : O(n)
-# SC : O(1)
+# TC: O(n)
+# SC: O(1)
 
 from typing import List
 
 
 class Solution:
     def maxSubArray(self, nums: List[int]) -> int:
-        maxSum = nums[0]
-        currentSum = 0
+        max_sum = nums[0]
+        curr_sum = 0
 
         for n in nums:
-            currentSum = max(n, currentSum + n)
-            maxSum = max(currentSum, maxSum)
+            curr_sum = max(n, curr_sum + n)
+            max_sum = max(curr_sum, max_sum)
 
-        return maxSum
+        return max_sum
 
 
 s = Solution()

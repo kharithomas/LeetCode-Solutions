@@ -1,7 +1,7 @@
-from typing import List
+# TC: O(n^2)
+# SC: O(n)
 
-# TC : O(N^2)
-# SC : O(N)
+from typing import List
 
 
 class Solution:

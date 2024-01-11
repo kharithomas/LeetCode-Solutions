@@ -1,7 +1,7 @@
-from typing import List
+# TC: O(n)
+# SC: O(1)
 
-# TC : O(N)
-# SC : O(1)
+from typing import List
 
 
 class Solution:

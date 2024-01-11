@@ -1,8 +1,5 @@
-from typing import List
-
 # TC : O(n)
 # SC : O(1)
-
 
 class Solution:
     def isPalindrome(self, s: str) -> bool:
