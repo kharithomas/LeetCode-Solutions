@@ -1,5 +1,5 @@
 # TC: O(n^2)
-# SC: O(n)
+# SC: O(1); not including the result array
 
 from typing import List
 
