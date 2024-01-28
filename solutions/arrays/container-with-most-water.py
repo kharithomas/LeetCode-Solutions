@@ -6,7 +6,7 @@ from typing import List
 
 class Solution:
     def maxArea(self, height: List[int]) -> int:
-        max_area = float('-inf')
+        max_area = 0
         left, right = 0, len(height) - 1
 
         while left < right:
