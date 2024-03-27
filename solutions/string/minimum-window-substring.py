@@ -5,7 +5,7 @@ class Solution:
     def minWindow(self, s: str, t: str) -> str:
         res = None
 
-        # create the frequency array for t
+        # create the frequency dict for t
         freqT = {}
         for char in t:
             freqT[char] = 1 + freqT.get(char, 0)
