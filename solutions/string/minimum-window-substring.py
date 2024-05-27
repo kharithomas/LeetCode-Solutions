@@ -1,5 +1,5 @@
-# TC : O(N)
-# SC : O(K); where K is the number of distinct characters in both s and t
+# TC : O(N+K), where N is length of s and K is length of t.
+# SC : O(N+K)
 
 class Solution:
     def minWindow(self, s: str, t: str) -> str:
