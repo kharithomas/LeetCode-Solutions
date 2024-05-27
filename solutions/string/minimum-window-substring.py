@@ -1,5 +1,5 @@
 # TC : O(N+K), where N is length of s and K is length of t.
-# SC : O(N+K)
+# SC : O(1), technically O(2*52) as there are only 52 lowercase and uppercase English letters.
 
 class Solution:
     def minWindow(self, s: str, t: str) -> str:
