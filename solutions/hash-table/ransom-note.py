@@ -1,18 +1,17 @@
-# TC : O(n), where n is length of ransom note
-# TC : O(26), since there 26 lowercase English letters
+# TC : O(N + M)
+# SC : O(1), since there 26 lowercase English letters
 
 class Solution:
     def canConstruct(self, ransomNote: str, magazine: str) -> bool:
-        freqM = {}
-
+        freq_m = {}
         for c in magazine:
-            freqM[c] = 1 + freqM.get(c, 0)
+            freq_m[c] = freq_m.get(c, 0) + 1
 
         for c in ransomNote:
-            if freqM.get(c) is None or freqM[c] == 0:
+            if freq_m.get(c) is None or freq_m[c] == 0:
                 return False
 
-            freqM[c] -= 1
+            freq_m[c] -= 1
 
         return True
 
