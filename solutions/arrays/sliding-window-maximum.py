@@ -9,7 +9,7 @@ class Solution:
     def maxSlidingWindow(self, nums: List[int], k: int) -> List[int]:
         d = deque()
         res = []
-        l = r = 0
+        l, r = 0, 0
 
         while r < len(nums):
             # remove all smaller values than current
