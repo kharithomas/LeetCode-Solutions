@@ -16,21 +16,31 @@ class ListNode:
 # Note: Above code is not part of solution
 
 # TC : O(N)
-# SC : O(1)
+# SC : O(1) or O(N) for recursive solution
 
 
 class Solution:
-    def reverseList(self, head: ListNode) -> ListNode:
+    def reverseListIteratively(self, head: ListNode) -> ListNode:
         prev = None
         curr = head
 
-        while curr is not None:
+        while curr:
             next = curr.next
             curr.next = prev
             prev = curr
             curr = next
 
         return prev
+
+    def reverseListRecursively(self, head: ListNode) -> ListNode:
+        if not head or not head.next:
+            return head
+
+        new_head = self.reverseListRecursively(head.next)
+        head.next.next = head  # head is actually the curr node
+        head.next = None
+
+        return new_head
 
 
 n5 = ListNode(5)
@@ -41,5 +51,6 @@ n1 = ListNode(1, n2)
 
 s = Solution()
 n1.printList()
-s.reverseList(n1)
+s.reverseListIteratively(n1)
+# s.reverseListRecursively(n1)
 n5.printList()
