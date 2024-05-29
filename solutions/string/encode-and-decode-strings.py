@@ -18,8 +18,8 @@ class Codec:
         """Decodes a single string to a list of strings.
         """
         res = []
-        l = 0
 
+        l = 0
         while l < len(s):
             r = l + 1
 
