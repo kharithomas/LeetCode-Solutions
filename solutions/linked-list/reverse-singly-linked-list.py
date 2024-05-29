@@ -1,30 +1,38 @@
-# reverse singly linked list
-
-# Definition for singly-linked list.
 class ListNode:
     def __init__(self, val=0, next=None):
         self.val = val
         self.next = next
 
     def printList(self):
+        res = []
+
         curr = self
         while curr is not None:
-            print(curr.val)
+            res.append(str(curr.val))
             curr = curr.next
+
+        print(', '.join(res))
+
+# Note: Above code is not part of solution
+
+# TC : O(N)
+# SC : O(1)
+
 
 class Solution:
     def reverseList(self, head: ListNode) -> ListNode:
         prev = None
+        curr = head
 
-        while head is not None:
-            next = head.next
-            head.next = prev
-            prev = head
-            head = next
+        while curr is not None:
+            next = curr.next
+            curr.next = prev
+            prev = curr
+            curr = next
 
         return prev
 
-# Linked List
+
 n5 = ListNode(5)
 n4 = ListNode(4, n5)
 n3 = ListNode(3, n4)
