@@ -1,5 +1,4 @@
-# TC : O(N), where N is number of nodes in list
-# SC : O(1)
+
 
 from typing import Optional
 
@@ -8,6 +7,11 @@ class ListNode:
     def __init__(self, x):
         self.val = x
         self.next = None
+
+# Note: Above code is not part of solution
+
+# TC : O(N)
+# SC : O(1)
 
 
 class Solution:
