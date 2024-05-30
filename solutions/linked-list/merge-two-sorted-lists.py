@@ -30,11 +30,14 @@ class Solution:
 
 s = Solution()
 
-m1 = s.mergeTwoLists(LinkedList([1, 2, 4]).head, LinkedList([1, 3, 4]).head)
+l1, l2 = LinkedList([1, 2, 4]), LinkedList([1, 3, 4])
+m1 = s.mergeTwoLists(l1.head, l2.head)
 print_list(m1)
 
-m2 = s.mergeTwoLists(LinkedList([]).head, LinkedList([]).head)
+l3, l4 = LinkedList([]), LinkedList([])
+m2 = s.mergeTwoLists(l3.head, l4.head)
 print_list(m2)
 
-m3 = s.mergeTwoLists(LinkedList([]).head, LinkedList([0]).head)
+l5, l6 = LinkedList([]), LinkedList([0])
+m3 = s.mergeTwoLists(l5.head, l6.head)
 print_list(m3)
