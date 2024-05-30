@@ -1,13 +1,11 @@
-# TC : O(N), where N is the number of nodes in the list
-# SC : O(1)
+
 
 from typing import Optional
 
+from helpers.linked_list import LinkedList, ListNode
 
-class ListNode:
-    def __init__(self, val=0, next=None):
-        self.val = val
-        self.next = next
+# TC : O(N), where N is the number of nodes in the list
+# SC : O(1)
 
 
 class Solution:
@@ -21,12 +19,7 @@ class Solution:
         return slow
 
 
-# Create a linked list: 1 -> 2 -> 3 -> 4 -> 5
-head = ListNode(1)
-head.next = ListNode(2)
-head.next.next = ListNode(3)
-head.next.next.next = ListNode(4)
-head.next.next.next.next = ListNode(5)
+l = LinkedList([1, 2, 3, 4, 5])
 
 s = Solution()
-print(s.middleNode(head).val)
+print(s.middleNode(l.head).val)

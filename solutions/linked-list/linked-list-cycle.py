@@ -1,14 +1,7 @@
-
-
 from typing import Optional
 
+from helpers.linked_list import ListNode
 
-class ListNode:
-    def __init__(self, x):
-        self.val = x
-        self.next = None
-
-# Note: Above code is not part of solution
 
 # TC : O(N)
 # SC : O(1)
