@@ -2,8 +2,8 @@ from typing import List
 
 
 class Codec:
-    # TC : O(N*K)
-    # SC : O(N*K); where N is number of words, K is avg. word length
+    # TC : O(N), where N is the length of strs
+    # SC : O(K), where K denotes the extra space to store the delimeter and word length
     def encode(self, strs: List[str]) -> str:
         """Encodes a list of strings to a single string.
         """
@@ -12,8 +12,8 @@ class Codec:
             res += str(len(word)) + "#" + word
         return res
 
-    # TC : O(N)
-    # SC : O(M); where M is number of words
+    # TC : O(N), where N is the length of s
+    # SC : O(K), where K denotes the extra space to store the delimeter and word length
     def decode(self, s: str) -> List[str]:
         """Decodes a single string to a list of strings.
         """
