@@ -9,12 +9,12 @@ from helpers.linked_list import ListNode, LinkedList, print_list
 
 class Solution:
     def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
-        slow = head
-        fast = head
+        slow = fast = head
 
         for _ in range(n):
             fast = fast.next
 
+        # corner case - remove first node
         if not fast:
             return head.next
 
@@ -23,6 +23,7 @@ class Solution:
             fast = fast.next
 
         slow.next = slow.next.next
+
         return head
 
 
