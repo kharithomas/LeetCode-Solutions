@@ -8,7 +8,7 @@ from helpers.linked_list import ListNode, LinkedList, print_list
 
 class Solution:
     def merge2Lists(self, l1: Optional[ListNode], l2: Optional[ListNode]):
-        head = curr = ListNode(0)
+        head = curr = ListNode()
 
         while l1 and l2:
             if l1.val <= l2.val:
