@@ -1,6 +1,6 @@
 from typing import Optional
 
-from helpers.linked_list import ListNode, LinkedList, print_list
+from data_structures.linked_list import ListNode, LinkedList, print_list
 
 
 # TC : O(N)
