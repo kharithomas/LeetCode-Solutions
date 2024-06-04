@@ -2,6 +2,9 @@ from typing import Optional
 
 from helpers.tree import TreeNode
 
+# TC : O(N), where N is the number of nodes
+# SC : O(h), where h is the height of the binary tree
+
 
 class Solution:
     def maxDepth(self, root: Optional[TreeNode]) -> int:
