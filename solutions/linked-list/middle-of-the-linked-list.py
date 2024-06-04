@@ -2,7 +2,7 @@
 
 from typing import Optional
 
-from data_structures.linked_list import LinkedList, ListNode
+from helpers.linked_list import LinkedList, ListNode
 
 # TC : O(N), where N is the number of nodes in the list
 # SC : O(1)

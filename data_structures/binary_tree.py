@@ -1,6 +1,11 @@
 from typing import List
 
-from data_structures.tree import TreeNode
+
+class TreeNode:
+    def __init__(self, value: int) -> None:
+        self.value = value
+        self.left = None
+        self.right = None
 
 
 class BinaryTree:
@@ -8,8 +13,6 @@ class BinaryTree:
         self.root = root
 
     def insert(self, root: TreeNode, value: int) -> None:
-        """Inserts a new TreeNode()"""
-
         if root is None:
             return TreeNode(value)
         if value < root.value:

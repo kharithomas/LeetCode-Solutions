@@ -1,6 +1,4 @@
 class TrieNode:
-    """A single node of a Trie"""
-
     def __init__(self):
         self.children = {}
         self.is_end_of_word = False

@@ -1,6 +1,6 @@
 from typing import List, Optional
 
-from data_structures.linked_list import ListNode, LinkedList, print_list
+from helpers.linked_list import ListNode, LinkedList, print_list
 
 # TC : O(N*logK), where N is the total number of nodes and K is the number of lists
 # SC : O(1)
