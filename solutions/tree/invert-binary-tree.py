@@ -3,7 +3,7 @@ from typing import Optional
 from helpers.tree import TreeNode, print_tree
 
 # TC : O(N)
-# SC : O(N)
+# SC : O(h)
 
 
 class Solution:
