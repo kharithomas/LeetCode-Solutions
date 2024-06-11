@@ -4,7 +4,7 @@ from collections import deque
 
 
 class TreeNode:
-    """A single node of a Trie"""
+    """A single node of a Tree"""
 
     def __init__(self, value: int) -> None:
         self.value = value
