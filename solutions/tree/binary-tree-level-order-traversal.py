@@ -43,5 +43,3 @@ root.left = TreeNode(9)
 root.right = a
 
 print(s.levelOrder(root))
-
-# [[3],[9,20],[15,7]]
