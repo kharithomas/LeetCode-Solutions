@@ -80,6 +80,24 @@ class BinaryTree:
 
         return result
 
+    def levelorder_traversal(self) -> List[int]:
+        if not self.root:
+            return []
+
+        result = []
+        queue = [self.root]
+
+        while queue:
+            node = queue.pop(0)
+            result.append(node.val)
+
+            if node.left:
+                queue.append(node.left)
+            if node.right:
+                queue.append(node.right)
+
+        return result
+
 
 if __name__ == "__main__":
 
