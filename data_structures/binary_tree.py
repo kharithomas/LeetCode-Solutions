@@ -23,7 +23,8 @@ class BinaryTree:
         return root
 
     def inorder_traversal(self) -> List[int]:
-        result, stack = [], []
+        result = []
+        stack = []
         current = self.root
 
         while stack or current:
@@ -41,7 +42,8 @@ class BinaryTree:
         if not self.root:
             return []
 
-        result, stack = [], [self.root]
+        result = []
+        stack = [self.root]
 
         while stack:
             current = stack.pop()
@@ -59,7 +61,8 @@ class BinaryTree:
         if not self.root:
             return []
 
-        result, stack1, stack2 = [], [self.root], []
+        result = []
+        stack1, stack2 = [self.root]
 
         while stack1:
             current = stack1.pop()
