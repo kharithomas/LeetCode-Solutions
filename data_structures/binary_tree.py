@@ -62,7 +62,7 @@ class BinaryTree:
             return []
 
         result = []
-        stack1, stack2 = [self.root]
+        stack1, stack2 = [self.root], []
 
         while stack1:
             current = stack1.pop()
