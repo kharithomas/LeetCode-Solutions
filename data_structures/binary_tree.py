@@ -1,5 +1,7 @@
 from typing import List
 
+from collections import deque
+
 
 class TreeNode:
     def __init__(self, value: int) -> None:
@@ -87,10 +89,10 @@ class BinaryTree:
             return []
 
         result = []
-        queue = [self.root]
+        queue = deque([self.root])
 
         while queue:
-            node = queue.pop(0)
+            node = queue.popleft()
             result.append(node.val)
 
             if node.left:
