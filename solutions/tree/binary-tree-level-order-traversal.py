@@ -1,4 +1,5 @@
 from typing import Optional, List
+from collections import deque
 
 from helpers.tree import TreeNode
 
@@ -8,18 +9,16 @@ from helpers.tree import TreeNode
 
 class Solution:
     def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
-        res = []
-
         if not root:
-            return res
+            return []
 
-        queue = [root]
+        res = []
+        queue = deque([root])
         while queue:
-            level_size = len(queue)
-            level = []
+            level = deque()
 
-            for _ in range(level_size):
-                node = queue.pop(0)
+            for _ in range(len(queue)):
+                node = queue.popleft()
                 level.append(node.value)
 
                 if node.left:
@@ -27,7 +26,7 @@ class Solution:
                 if node.right:
                     queue.append(node.right)
 
-            res.append(level)
+            res.append(list(level))
 
         return res
 
