@@ -62,21 +62,23 @@ class BinaryTree:
             return []
 
         result = []
-        stack1, stack2 = [self.root], []
+        stack = []
+        curr, prev = self.root, None
 
-        while stack1:
-            current = stack1.pop()
-            stack2.append(current)
+        while stack or curr:
+            while curr:
+                stack.append(curr)
+                curr = curr.left
 
-            if current.left:
-                stack1.append(current.left)
+            curr = stack[-1]
 
-            if current.right:
-                stack1.append(current.right)
-
-        while stack2:
-            current = stack2.pop()
-            result.append(current.value)
+            if not curr.right or curr.right == prev:
+                stack.pop()
+                result.append(curr.val)
+                prev = curr
+                curr = None
+            else:
+                curr = curr.right
 
         return result
 
