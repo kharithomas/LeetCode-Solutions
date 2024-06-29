@@ -72,7 +72,7 @@ class BinaryTree:
                 stack.append(curr)
                 curr = curr.left
 
-            curr = stack[-1]
+            curr = stack[-1]  # peek
 
             if not curr.right or curr.right == prev:
                 stack.pop()
