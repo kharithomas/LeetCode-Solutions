@@ -17,9 +17,11 @@ class Solution:
             if pre_left > pre_right:
                 return None
 
+            # Use preorder for determining root nodes
             root_val = preorder[pre_left]
             root = TreeNode(root_val)
 
+            # Use inorder for determining which nodes are on left / right
             mid = seen[root_val]
             left_size = mid - in_left
 
