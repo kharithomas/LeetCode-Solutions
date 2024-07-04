@@ -8,18 +8,19 @@ class Solution:
     def subsets(self, nums: List[int]) -> List[List[int]]:
         res, state = [], []
 
-        def backtrack(i: int):
-            if i == len(nums):
-                res.append(state.copy())
-                return
+        def backtrack(start: int):
+            # Base case
+            res.append(state.copy())
 
-            # don't pick nums[i]
-            backtrack(i + 1)
+            for i in range(start, len(nums)):
+                #  Choose the current element
+                state.append(nums[i])
 
-            # pick nums[i]
-            state.append(nums[i])
-            backtrack(i + 1)
-            state.pop()
+                # Explore further with the current element
+                backtrack(i + 1)
+
+                # Backtrack: remove the current element to explore other subsets
+                state.pop()
 
         backtrack(0)
         return res
