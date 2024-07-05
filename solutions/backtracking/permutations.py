@@ -1,7 +1,7 @@
 from typing import List
 
-# TC : O(n * n!)
-# SC : O(n)
+# TC : O(n * n!), This is an approximation. Also, extra n because time to copy state.
+# SC : O(n), as the depth of the call stack is same as length of state, which is limited to n.
 
 
 class Solution:
@@ -13,12 +13,12 @@ class Solution:
                 res.append(state.copy())
                 return
 
-            for i in range(len(nums)):
+            for n in nums:
                 # prevent duplicates
-                if nums[i] in state:
+                if n in state:
                     continue
 
-                state.append(nums[i])
+                state.append(n)
                 backtrack()
                 state.pop()
 
