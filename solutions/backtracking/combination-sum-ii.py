@@ -1,6 +1,6 @@
 from typing import List
 
-# TC : O(2^n), where n represents value of target
+# TC : O(n*2^n), where n represents value of target
 # SC : O(n)
 
 
