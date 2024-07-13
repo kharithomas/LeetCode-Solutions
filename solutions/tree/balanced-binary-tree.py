@@ -8,21 +8,24 @@ from helpers.tree import TreeNode
 
 class Solution:
     def isBalanced(self, root: Optional[TreeNode]) -> bool:
-        if not root:
-            return True
+        def helper(root: Optional[TreeNode]) -> int:
+            if not root:
+                return 0
 
-        left = self.isBalanced(root.left)
-        if not left:
-            return False
+            left = helper(root.left)
+            if left == -1:
+                return -1
 
-        right = self.isBalanced(root.right)
-        if not right:
-            return False
+            right = helper(root.right)
+            if right == -1:
+                return -1
 
-        if abs(left - right) > 1:
-            return False
+            if abs(left - right) > 1:
+                return -1
 
-        return 1 + max(left, right)
+            return max(left, right) + 1
+
+        return helper(root) != -1
 
 
 s = Solution()
