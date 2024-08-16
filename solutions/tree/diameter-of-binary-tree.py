@@ -8,40 +8,21 @@ from helpers.tree import TreeNode
 
 class Solution:
     def diameterOfBinaryTree(self, root: Optional[TreeNode]) -> int:
-        if not root:
-            return 0
-
         res = 0
-        stack = []
-        depths = {}
-        curr, prev = root, None
 
-        while stack or curr:
-            while curr:
-                stack.append(curr)
-                curr = curr.left
+        def helper(node: Optional[TreeNode]):
+            if not node:
+                return 0
 
-            curr = stack[-1]
+            left = helper(node.left)
+            right = helper(node.right)
 
-            if not curr.right or curr.right == prev:
-                stack.pop()
+            nonlocal res
+            res = max(res, left + right)
 
-                # find depth of child nodes, if exists
-                left_depth = depths.get(curr.left, 0)
-                right_depth = depths.get(curr.right, 0)
+            return 1 + max(left, right)
 
-                # store max depth for current node
-                depths[curr] = max(left_depth, right_depth) + 1
-
-                # update max diameter, if necessary
-                diameter = left_depth + right_depth
-                res = max(res, diameter)
-
-                prev = curr
-                curr = None
-            else:
-                curr = curr.right
-
+        helper(root)
         return res
 
 
