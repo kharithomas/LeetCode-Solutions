@@ -6,11 +6,10 @@ from typing import List
 
 class Solution:
     def exist(self, board: List[List[str]], word: str) -> bool:
-        rows = len(board)
-        cols = len(board[0])
+        rows, cols = len(board), len(board[0])
 
         # up, right, down, left
-        directions = [(0, -1), (1, 0), (0, 1), (-1, 0)]
+        directions = ((0, -1), (1, 0), (0, 1), (-1, 0))
 
         # edge case - board has one char
         if rows == 1 and cols == 1:
