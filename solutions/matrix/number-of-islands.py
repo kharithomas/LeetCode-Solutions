@@ -1,7 +1,8 @@
+from collections import deque
 from typing import List
 
 # TC : O(m * n), where m is number of rows, n is number of cols
-# SC : O(m * n), because call-stack can have at most m*n calls
+# SC : O(min(m,n))
 
 
 class Solution:
@@ -14,26 +15,31 @@ class Solution:
         directions = ((-1, 0), (0, 1), (1, 0), (0, -1))
 
         # Marks all connected land masses visited
-        def traverse(row, col):
-            if grid[row][col] == "0":
-                return
+        def bfs(row: int, col: int):
+            q = deque([(row, col)])
 
-            # Mark as visited
-            grid[row][col] = "0"
+            while q:
+                r, c = q.popleft()
 
-            for y_offset, x_offset in directions:
-                new_row = y_offset + row
-                new_col = x_offset + col
+                if grid[r][c] == "0":
+                    continue
 
-                # Check pos within grid boundary
-                if 0 <= new_row < rows and 0 <= new_col < cols:
-                    traverse(new_row, new_col)
+                # Mark as visited
+                grid[r][c] = "0"
+
+                for y_offset, x_offset in directions:
+                    new_row = y_offset + r
+                    new_col = x_offset + c
+
+                    # Check pos within grid boundary
+                    if 0 <= new_row < rows and 0 <= new_col < cols:
+                        q.append((new_row, new_col))
 
         for row in range(rows):
             for col in range(cols):
                 if grid[row][col] == "1":
                     islands += 1
-                    traverse(row, col)
+                    bfs(row, col)
 
         return islands
 
