@@ -1,45 +1,40 @@
 from collections import deque
 from typing import List
 
-# TC : O(m * n), where m is number of rows, n is number of cols
+# TC : O(m * n)
 # SC : O(min(m,n))
 
 
 class Solution:
     def numIslands(self, grid: List[List[str]]) -> int:
-        if not grid:
-            return 0
-
-        islands = 0
         rows, cols = len(grid), len(grid[0])
+        visited = set()
         directions = ((-1, 0), (0, 1), (1, 0), (0, -1))
+        islands = 0
 
-        # Marks all connected land masses visited
-        def bfs(row: int, col: int):
-            q = deque([(row, col)])
+        def dfs(y, x):
+            stack = [(y, x)]
 
-            while q:
-                r, c = q.popleft()
+            while stack:
+                row, col = stack.pop()
+                visited.add((row, col))
 
-                if grid[r][c] == "0":
-                    continue
+                for dy, dx in directions:
+                    next_row, next_col = dy + row, dx + col
 
-                # Mark as visited
-                grid[r][c] = "0"
+                    if (
+                        0 <= next_row < rows
+                        and 0 <= next_col < cols
+                        and (next_row, next_col) not in visited
+                        and grid[next_row][next_col] == "1"
+                    ):
+                        stack.append((next_row, next_col))
 
-                for y_offset, x_offset in directions:
-                    new_row = y_offset + r
-                    new_col = x_offset + c
-
-                    # Check pos within grid boundary
-                    if 0 <= new_row < rows and 0 <= new_col < cols:
-                        q.append((new_row, new_col))
-
-        for row in range(rows):
-            for col in range(cols):
-                if grid[row][col] == "1":
+        for r in range(rows):
+            for c in range(cols):
+                if grid[r][c] == "1" and (r, c) not in visited:
                     islands += 1
-                    bfs(row, col)
+                    dfs(r, c)
 
         return islands
 
