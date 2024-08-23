@@ -25,45 +25,45 @@ class BinaryTree:
         return root
 
     def inorder_traversal(self) -> List[int]:
-        result = []
+        res = []
         stack = []
-        current = self.root
+        curr = self.root
 
-        while stack or current:
-            while current:
-                stack.append(current)
-                current = current.left
+        while stack or curr:
+            while curr:
+                stack.append(curr)
+                curr = curr.left
 
-            current = stack.pop()
-            result.append(current.value)
-            current = current.right
+            curr = stack.pop()
+            res.append(curr.value)
+            curr = curr.right
 
-        return result
+        return res
 
     def preorder_traversal(self) -> List[int]:
         if not self.root:
             return []
 
-        result = []
+        res = []
         stack = [self.root]
 
         while stack:
-            current = stack.pop()
-            result.append(current.value)
+            curr = stack.pop()
+            res.append(curr.value)
 
-            if current.right:
-                stack.append(current.right)
+            if curr.right:
+                stack.append(curr.right)
 
-            if current.left:
-                stack.append(current.left)
+            if curr.left:
+                stack.append(curr.left)
 
-        return result
+        return res
 
     def postorder_traversal(self) -> List[int]:
         if not self.root:
             return []
 
-        result = []
+        res = []
         stack = []
         curr, prev = self.root, None
 
@@ -76,31 +76,31 @@ class BinaryTree:
 
             if not curr.right or curr.right == prev:
                 stack.pop()
-                result.append(curr.val)
+                res.append(curr.val)
                 prev = curr
                 curr = None
             else:
                 curr = curr.right
 
-        return result
+        return res
 
     def levelorder_traversal(self) -> List[int]:
         if not self.root:
             return []
 
-        result = []
+        res = []
         queue = deque([self.root])
 
         while queue:
             node = queue.popleft()
-            result.append(node.val)
+            res.append(node.val)
 
             if node.left:
                 queue.append(node.left)
             if node.right:
                 queue.append(node.right)
 
-        return result
+        return res
 
 
 if __name__ == "__main__":
