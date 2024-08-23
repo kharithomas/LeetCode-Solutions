@@ -1,7 +1,7 @@
 from collections import deque
 from typing import List
 
-# TC : O(m * n), where m is number of rows, n is number of cols
+# TC : O(m * n)
 # SC : O(min(m,n))
 
 

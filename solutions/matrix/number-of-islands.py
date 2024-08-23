@@ -2,22 +2,28 @@ from collections import deque
 from typing import List
 
 # TC : O(m * n)
-# SC : O(min(m,n))
+# SC : O(m * n)
 
 
 class Solution:
-    def numIslands(self, grid: List[List[str]]) -> int:
+    def maxAreaOfIsland(self, grid: List[List[int]]) -> int:
         rows, cols = len(grid), len(grid[0])
         visited = set()
         directions = ((-1, 0), (0, 1), (1, 0), (0, -1))
-        islands = 0
+        res = 0
 
         def dfs(y, x):
             stack = [(y, x)]
+            count = 0
 
             while stack:
                 row, col = stack.pop()
+
+                if (row, col) in visited:
+                    continue
+
                 visited.add((row, col))
+                count += 1
 
                 for dy, dx in directions:
                     next_row, next_col = dy + row, dx + col
@@ -25,18 +31,19 @@ class Solution:
                     if (
                         0 <= next_row < rows
                         and 0 <= next_col < cols
-                        and (next_row, next_col) not in visited
-                        and grid[next_row][next_col] == "1"
+                        and grid[next_row][next_col] == 1
                     ):
                         stack.append((next_row, next_col))
 
+            return count
+
         for r in range(rows):
             for c in range(cols):
-                if grid[r][c] == "1" and (r, c) not in visited:
-                    islands += 1
-                    dfs(r, c)
+                if grid[r][c] == 1 and (r, c) not in visited:
+                    area = dfs(r, c)
+                    res = max(res, area)
 
-        return islands
+        return res
 
 
 s = Solution()
