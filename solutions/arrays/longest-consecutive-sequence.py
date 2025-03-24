@@ -6,15 +6,15 @@ from typing import List
 
 class Solution:
     def longestConsecutive(self, nums: List[int]) -> int:
-        numSet = set(nums)
+        num_set = set(nums)
         res = 0
 
-        for n in nums:
+        for n in num_set:
             # check if n is start of sequence
-            if (n - 1) not in numSet:
+            if (n - 1) not in num_set:
                 length = 1
 
-                while (n + length) in numSet:
+                while (n + length) in num_set:
                     length += 1
 
                 res = max(res, length)
