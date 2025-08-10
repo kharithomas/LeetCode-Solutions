@@ -3,13 +3,12 @@
 
 from typing import List
 
+
 class Solution:
     def spiralOrder(self, matrix: List[List[int]]) -> List[int]:
-        if not matrix or not matrix[0]:
-            return []
-
         rows, cols = len(matrix), len(matrix[0])
-        left, right, top, bottom = 0, cols - 1, 0, rows - 1
+        left, right = 0, cols - 1
+        top, bottom = 0, rows - 1
         res = []
 
         while left <= right and top <= bottom:
@@ -36,7 +35,8 @@ class Solution:
                 left += 1
 
         return res
-    
+
+
 s = Solution()
-print(s.spiralOrder([[1,2,3],[4,5,6],[7,8,9]]))
-print(s.spiralOrder([[1,2,3,4],[5,6,7,8],[9,10,11,12]]))
+print(s.spiralOrder([[1, 2, 3], [4, 5, 6], [7, 8, 9]]))
+print(s.spiralOrder([[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]]))
